@@ -1,0 +1,268 @@
+/* style.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+  .bg-danger {
+    background-color: var(--danger);
+  }
+
+.card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 340px;
+}
+
+.card h2 {
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 1rem 0.5rem 0.5rem;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  font-size: 1rem;
+  background: transparent;
+  transition: border-color 0.3s;
+  outline: none;
+}
+
+.input-group label {
+  position: absolute;
+  top: 1rem;
+  left: 0.5rem;
+  font-size: 1rem;
+  color: #999;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.input-group input:focus {
+  border-color: #6200ee;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top: 0.3rem;
+  font-size: 0.75rem;
+  color: #6200ee;
+}
+
+.card .bttn {
+  width: 100%;
+  padding: 0.75rem;
+  background: #6200ee;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.card .bttn:hover {
+  background: #4b00c0;
+}
+
+.card-footer {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.card-footer a {
+  color: #6200ee;
+  text-decoration: none;
+}
+
+.card-footer a:hover {
+  text-decoration: underline;
+}
+
+.todo-list {
+    margin-top: 1.5rem;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f1f1f1;
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.todo-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.todo-left input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #6200ee;
+}
+
+.todo-left span {
+    font-size: 1rem;
+    color: #333;
+}
+
+.todo-right button {
+    background: none;
+    border: none;
+    color: #e53935;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.todo-right button:hover {
+    background: rgba(229, 57, 53, 0.1);
+}
+
+.todo-form {
+    margin-top: 1rem;
+}
+
+.todo-form input[type="text"] {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.todo-form input[type="text"]:focus {
+    border-color: #6200ee;
+}
+
+.error {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  color: #e53935;
+  font-size: 0.9rem;
+  text-align: center !important;
+}
+.password-group {
+  position: relative;
+}
+
+.toggle-btn {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  background: none;
+  border: none;
+  font-size: 0.7rem;
+  color: #6200ee;
+  cursor: pointer;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: -300px; /* initially hidden outside viewport */
+    background-color: #4caf50;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: right 0.5s ease;
+    min-width: 250px;
+    z-index: 1000;
+}
+
+.notification.show {
+    right: 20px; /* slide in */
+}
+
+.text-danger{
+  color: #f44336; /* red */
+}
+
+.strike {
+  text-decoration: line-through;
+  color: #6a6a6a !important;
+}
+.text-center{
+  text-align: center;
+}
+
+.text-left{
+  text-align: left;
+}
+
+.text-right{
+  text-align: right;
+}
+
+.notification h4 {
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.notification p {
+    margin: 0;
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+/* Type backgrounds */
+.notification.success {
+  background-color: #4caf50; /* green */
+}
+
+.notification.error {
+  background-color: #f44336; /* red */
+}
+
+.notification.warning {
+  background-color: #ff9800; /* orange */
+}
+
+.notification.info {
+  background-color: #2196f3; /* blue */
+}
+
+/* Demo button to trigger the notification manually */
+.trigger-btn {
+    margin: 5rem;
+    padding: 0.75rem 1.25rem;
+    background-color: #6200ee;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
