@@ -5,7 +5,7 @@
     <div v-if="error" class="error">{{ error }}</div>
     <form>
       <div class="input-group">
-        <input type="text" v-model="form.username" required :disabled="isDisabled" />
+        <input type="text" id="username" v-model="form.username" required :disabled="isDisabled" />
         <label for="username">Username</label>
       </div>
 
@@ -13,6 +13,7 @@
         <input
           :type="showPassword ? 'text' : 'password'"
           v-model="form.password"
+          id="password"
           required
           :disabled="isDisabled"
         />
@@ -22,7 +23,7 @@
         </div>
       </div>
 
-      <button type="button" class="bttn" @click="handleLogin">Sign In</button>
+      <button type="button" id="submit" class="bttn" @click="handleLogin">Sign In</button>
     </form>
 
     <div class="card-footer">

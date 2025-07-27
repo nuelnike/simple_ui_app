@@ -4,7 +4,7 @@
       <h2>My TODO List</h2>
 
       <div class="todo-form">
-        <input type="text" placeholder="What do you need to do?" v-model="newTask" @keyup.enter="addTodo" />
+        <input type="text" id="newItem" placeholder="What do you need to do?" v-model="newTask" @keyup.enter="addTodo" />
       </div>
 
       <div class="todo-list">
@@ -19,10 +19,10 @@
         </div>
       </div>
 
-      <p v-if="todos.length === 0" class="text-center text-danger">No tasks available, create new task.</p>
-
+      <p v-if="todos.length === 0" class="text-center text-danger animate__animated animate__fadeIn">No tasks available, create new task.</p>
       <div class="card-footer">
-        <p><button type="button" @click="doLogout">Logout</button></p>
+        <p v-if="todos.length > 0"><button type="button" id="clearBtn" class="animate__animated animate__fadeIn" @click="clearItems">Clear items</button></p> <br/>
+        <p><button type="button" id="logoutBtn" @click="doLogout">Logout</button></p>
       </div>
     </div>
   </NuxtLayout>
@@ -38,10 +38,22 @@
   const addTodo = () => {
     if (!newTask.value.trim()) return store().showNotification({"typ": "error", "msg":'Enter text to add item'});
     store().addTodo(newTask.value.trim());
+    store().showNotification({"typ": "success", "msg":'Item added successfully'});
     newTask.value = ''
   }
 
-  const deleteTodo = (i) => todos.value.splice(i, 1);
-  const doLogout = () => store().doLogout()
+  const clearItems = () => {
+    store().clearTodos();
+    store().showNotification({"typ": "success", "msg":'All items cleared successfully'});
+  }
+
+  const deleteTodo = (i) => {
+    todos.value.splice(i, 1);
+    store().showNotification({"typ": "success", "msg":'item removed successfully'});
+  };
+  const doLogout = () => {
+    store().doLogout();
+    store().showNotification({"typ": "success", "msg":'logout was successfully'});
+  }
   
 </script>
